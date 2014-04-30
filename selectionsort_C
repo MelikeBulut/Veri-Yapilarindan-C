@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_SIZE 101
+#define SWAP(x,y,t) ((t)=(x), (x)=(y), (y)=(t))
+
+void sort(int[], int);
+
+int main()
+{
+    int i,n;
+    int list[MAX_SIZE];
+
+    printf("Enter number:");
+    scanf("%d", &n);
+
+    if(n<1 || n>MAX_SIZE){
+        /*printf("Incorrect value\n");
+        exit(1);*/
+        printf("\nEnter number greater than 1:");
+        scanf("%d", &n);
+    }
+
+    printf("\nRandom numbers:");
+    for(i=0; i<n; i++){
+        list[i] = rand()%100;
+        printf("%d ", list[i]); //value is between 0 and 99
+    }
+
+    printf("\n\nSorted numbers:");
+    sort(list, n);
+
+    for(i=0; i<n; i++){
+        printf("%d ", list[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+void sort(int list[], int n)
+{
+    int i, j, min, temp;
+    for(i=0; i<n; i++){
+        min=i;
+        for(j=0; j<n; j++)
+            if(list[j] > list[i]){
+                min = j;
+                SWAP(list[i], list[min], temp);
+            }
+    }
+
+}
