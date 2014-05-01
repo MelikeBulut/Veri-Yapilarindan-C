@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 #define COMPARE(x, y) ((x)<(y) ? -1 : (y)<(x) ? 1 : 0)
 
 int binsearch(int[], int, int, int);
